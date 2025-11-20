@@ -3,4 +3,8 @@ class AppStrings {
 
   static const String appTitle = 'Easacc-Task';
   static const String defaultError = 'Something went wrong';
+  static const String noInternetConnection =
+      'No Internet Connection. Please check your internet and try again.';
+  static const String googleSignIn = 'Google Sign In';
+  static const String facebookSignIn = 'Facebook SignIn';
 }
