@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/main_app.dart';
+import 'src/core/observers/riverpod_observer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const ProviderScope(child: MainApp()));
+  runApp(
+    ProviderScope(observers: [RiverpodObserver()], child: const MainApp()),
+  );
 }
