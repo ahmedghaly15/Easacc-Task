@@ -48,6 +48,10 @@ dev_dependencies:
   riverpod_lint: ^3.0.3
   # For immutable data classes
   freezed: ^3.2.3
+  # A build system for Dart code generation and modular compilation.
+  build_runner: ^2.4.14
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_serializable: ^6.9.0
 
 flutter:
   uses-material-design: true
