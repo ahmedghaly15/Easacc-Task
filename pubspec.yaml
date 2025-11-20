@@ -27,11 +27,17 @@ dependencies:
   connectivity_plus: ^7.0.0
   # Permission handling
   permission_handler: ^11.3.1
+  # for beautified logging
+  logger: ^2.6.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  # Custom Lint rules are a powerful way to improve the maintainability of a project
+  custom_lint: ^0.8.0
+  # A developer tool for users of Riverpod, designed to help stop common issues and simplify repetitive tasks.
+  riverpod_lint: ^3.0.3
 
 flutter:
   uses-material-design: true
