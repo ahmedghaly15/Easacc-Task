@@ -13,10 +13,10 @@ dependencies:
   # State Management
   flutter_riverpod: ^3.0.3
   # Social Login
-  google_sign_in: ^7.0.2
+  google_sign_in: ^6.3.0
   flutter_facebook_auth: ^6.0.0
   # Local Storage
-  shared_preferences: ^2.4.1
+  shared_preferences: ^2.5.3
   # WebView
   webview_flutter: ^4.13.0
   # Bluetooth
@@ -29,6 +29,12 @@ dependencies:
   permission_handler: ^11.3.1
   # for beautified logging
   logger: ^2.6.2
+  # Supabase
+  supabase_flutter: ^2.10.3
+  # For immutable data classes
+  freezed_annotation: ^3.1.0
+  # For secure storage
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +44,8 @@ dev_dependencies:
   custom_lint: ^0.8.0
   # A developer tool for users of Riverpod, designed to help stop common issues and simplify repetitive tasks.
   riverpod_lint: ^3.0.3
+  # For immutable data classes
+  freezed: ^3.2.3
 
 flutter:
   uses-material-design: true
