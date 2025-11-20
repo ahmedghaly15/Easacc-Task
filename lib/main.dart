@@ -5,8 +5,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'src/core/cache/secure_storage_helper.dart';
-import 'src/core/cache/shared_pref_helper.dart';
+import 'src/core/cache/secure_cache.dart';
+import 'src/core/cache/cache_helper.dart';
 import 'src/core/widgets/flutter_error_details_view.dart';
 import 'src/main_app.dart';
 import 'src/core/loggers/riverpod_observer.dart';
