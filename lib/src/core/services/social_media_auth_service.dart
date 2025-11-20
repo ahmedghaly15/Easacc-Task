@@ -5,17 +5,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../features/auth/data/models/user_model.dart';
 import '../providers/supabase_providers.dart';
 import '../supabase/supabase_error_message.dart';
 
-final googleSignInServiceProvider =
+final socailMedialAuthServiceProvider =
     Provider.autoDispose<SocialMediaAuthService>(
       (ref) => SocialMediaAuthServiceImpl(ref.read(supabaseProvider)),
     );
 
 abstract class SocialMediaAuthService {
-  Future<void> googleSignIn();
-  Future<void> facebookSignIn();
+  Future<UserModel> googleSignIn();
+  Future<bool> facebookSignIn();
 }
 
 class SocialMediaAuthServiceImpl implements SocialMediaAuthService {
@@ -24,13 +25,14 @@ class SocialMediaAuthServiceImpl implements SocialMediaAuthService {
   SocialMediaAuthServiceImpl(this._supabaseClient);
 
   @override
-  Future<void> googleSignIn() async {
+  Future<UserModel> googleSignIn() async {
     if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
-      await _nativeGoogleSignIn();
+      return await _nativeGoogleSignIn();
     }
+    throw 'Current Platform is not Supported';
   }
 
-  Future<void> _nativeGoogleSignIn() async {
+  Future<UserModel> _nativeGoogleSignIn() async {
     final GoogleSignIn googleSignIn = GoogleSignIn(
       clientId:
           '39485904573-b7ituag7p10ifv3ibca6f6tbrkr28rcs.apps.googleusercontent.com',
@@ -49,15 +51,18 @@ class SocialMediaAuthServiceImpl implements SocialMediaAuthService {
     if (idToken == null) {
       throw SupabaseErrorMessage.noIdTokenFound;
     }
-    await _supabaseClient.auth.signInWithIdToken(
+
+    final authResponse = await _supabaseClient.auth.signInWithIdToken(
       provider: OAuthProvider.google,
       idToken: idToken,
       accessToken: accessToken,
     );
+
+    return UserModel.fromSession(authResponse.session!);
   }
 
   @override
-  Future<void> facebookSignIn() {
+  Future<bool> facebookSignIn() {
     return _supabaseClient.auth.signInWithOAuth(
       OAuthProvider.facebook,
       authScreenLaunchMode: LaunchMode.inAppBrowserView,
