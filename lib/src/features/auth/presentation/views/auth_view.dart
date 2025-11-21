@@ -10,7 +10,7 @@ class AuthView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: .symmetric(horizontal: 16),
         child: Column(
           spacing: 24,
           mainAxisAlignment: .center,
