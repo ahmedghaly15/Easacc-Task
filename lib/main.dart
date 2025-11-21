@@ -1,10 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show ProviderException;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'firebase_options.dart';
 import 'src/core/cache/secure_cache.dart';
 import 'src/core/cache/cache_helper.dart';
 import 'src/core/widgets/flutter_error_details_view.dart';
@@ -26,10 +27,7 @@ void main() async {
   ErrorWidget.builder = (FlutterErrorDetails details) =>
       FlutterErrorDetailsView(details: details);
 
-  await Supabase.initialize(
-    url: 'https://jggbgcummgjbcmeoedgc.supabase.co',
-    anonKey: 'sb_publishable_vSU24U2qQHn8-p1TuOO6Iw_r-xXmR2q',
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(
     ProviderScope(
