@@ -1,17 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/services/social_media_auth_service.dart';
-import '../../../../core/supabase/supabase_request_result.dart';
+import '../../../../core/firebase/firebase_request_result.dart';
 import '../../../../core/utils/functions/execute_and_handle_errors.dart';
 import '../models/user_model.dart';
 
 final authRepoProvider = Provider.autoDispose<AuthRepo>(
-  (ref) => AuthRepoImpl(ref.read(socailMedialAuthServiceProvider)),
+  (ref) => AuthRepoImpl(ref.read(socialMediaAuthServiceProvider)),
 );
 
 abstract class AuthRepo {
-  Future<SupabaseRequestResult<UserModel>> googleSingIn();
-  Future<SupabaseRequestResult<bool>> facebookSingIn();
+  Future<FirebaseRequestResult<UserModel>> googleSingIn();
+  Future<FirebaseRequestResult<UserModel>> facebookSingIn();
 }
 
 class AuthRepoImpl implements AuthRepo {
@@ -20,14 +20,14 @@ class AuthRepoImpl implements AuthRepo {
   AuthRepoImpl(this._socialAuthService);
 
   @override
-  Future<SupabaseRequestResult<bool>> facebookSingIn() {
-    return executeAndHandleErrors<bool>(
+  Future<FirebaseRequestResult<UserModel>> facebookSingIn() {
+    return executeAndHandleErrors<UserModel>(
       () => _socialAuthService.facebookSignIn(),
     );
   }
 
   @override
-  Future<SupabaseRequestResult<UserModel>> googleSingIn() {
+  Future<FirebaseRequestResult<UserModel>> googleSingIn() {
     return executeAndHandleErrors<UserModel>(
       () => _socialAuthService.googleSignIn(),
     );

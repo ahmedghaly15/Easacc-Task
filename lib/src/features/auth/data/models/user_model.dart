@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';
@@ -18,10 +17,4 @@ sealed class UserModel with _$UserModel {
 
   factory UserModel.empty() =>
       const UserModel(userId: '', email: '', accessToken: '');
-
-  factory UserModel.fromSession(Session session) => UserModel(
-    userId: session.user.id,
-    email: session.user.email,
-    accessToken: session.accessToken,
-  );
 }
