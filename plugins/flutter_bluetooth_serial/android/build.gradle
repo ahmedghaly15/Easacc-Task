@@ -1,0 +1,45 @@
+// plugins/flutter_bluetooth_serial/android/build.gradle
+// Modernized for AGP 8+, removed buildscript block and added namespace.
+
+apply plugin: 'com.android.library'
+
+buildscript {
+    // keep empty or remove entirely; root project manages AGP now
+}
+
+android {
+    // Add a namespace required by AGP 7.0+ (and required with AGP 8)
+    namespace "io.github.edufolly.flutter_bluetooth_serial"
+
+    compileSdkVersion 33 // or 34 — set to match your project's compileSdk (flutter.compileSdkVersion)
+
+    defaultConfig {
+        minSdkVersion 19
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    // If plugin uses Kotlin, add kotlinOptions (optional)
+    // kotlinOptions {
+    //     jvmTarget = "11"
+    // }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+    buildToolsVersion '30.0.3'
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
