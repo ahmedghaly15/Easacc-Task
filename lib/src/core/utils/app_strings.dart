@@ -9,4 +9,6 @@ class AppStrings {
   static const String facebookSignIn = 'Facebook SignIn';
   static const String webView = 'Web View Page';
   static const String settingPage = 'Setting Page';
+  static const String scanNetworkDevices = 'Scan Network Devices';
+  static const String openWebView = 'Open Web View';
 }

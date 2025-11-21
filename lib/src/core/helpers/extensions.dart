@@ -27,8 +27,8 @@ extension ShowMyToast on BuildContext {
 }
 
 extension NavigationExtensions on BuildContext {
-  void pushNamed(String routeName) {
-    Navigator.pushNamed(this, routeName);
+  void pushNamed(String routeName, {Object? arguments}) {
+    Navigator.pushNamed(this, routeName, arguments: arguments);
   }
 
   void pop([dynamic result]) {

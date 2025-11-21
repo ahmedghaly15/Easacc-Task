@@ -24,7 +24,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SettingsView());
 
       case Routes.webView:
-        return MaterialPageRoute(builder: (_) => const WebView());
+        final url = settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => WebView(url: url));
 
       default:
         return _notFoundRoute();
