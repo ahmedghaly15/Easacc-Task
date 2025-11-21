@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- App name -->
+    <string name="app_name">easacc_first_task</string>
+
+    <!-- Facebook credentials -->
     <string name="facebook_app_id">1947124719198042</string>
     <string name="facebook_client_token">859d7ca2e13ec64fa35d16419f1ad026</string>
 
-    <!-- REQUIRED -->
+    <!-- Facebook URI scheme -->
     <string name="fb_login_protocol_scheme">fb1947124719198042</string>
+
 </resources>
