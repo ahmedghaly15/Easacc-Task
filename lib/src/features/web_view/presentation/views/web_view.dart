@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class WebView extends StatelessWidget {
-  const WebView({super.key});
+  const WebView({super.key, required this.url});
+
+  final String url;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Web View Screen')));
+    final controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse(url));
+    return Scaffold(body: WebViewWidget(controller: controller));
   }
 }
