@@ -47,5 +47,9 @@ extension NavigationExtensions on BuildContext {
     Navigator.pushNamedAndRemoveUntil(this, routeName, (route) => false);
   }
 
+  void pushReplacementNamed(String routeName) {
+    Navigator.pushReplacementNamed(this, routeName);
+  }
+
   void popTop() => Navigator.of(this, rootNavigator: true).pop();
 }
