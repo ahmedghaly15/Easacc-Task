@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/supabase/supabase_request_result.dart';
+import '../../../../core/firebase/firebase_request_result.dart';
 import '../../data/models/user_model.dart';
 import '../../data/repos/auth_repo.dart';
 
