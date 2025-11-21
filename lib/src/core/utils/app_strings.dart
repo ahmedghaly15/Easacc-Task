@@ -7,4 +7,6 @@ class AppStrings {
       'No Internet Connection. Please check your internet and try again.';
   static const String googleSignIn = 'Google Sign In';
   static const String facebookSignIn = 'Facebook SignIn';
+  static const String webView = 'Web View Page';
+  static const String settingPage = 'Setting Page';
 }
