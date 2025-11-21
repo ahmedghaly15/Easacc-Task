@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 import 'src/core/cache/secure_cache.dart';
 import 'src/core/cache/cache_helper.dart';
+import 'src/core/utils/functions/check_user_is_logged_in.dart';
 import 'src/core/widgets/flutter_error_details_view.dart';
 import 'src/main_app.dart';
 import 'src/core/loggers/riverpod_observer.dart';
@@ -28,6 +29,7 @@ void main() async {
       FlutterErrorDetailsView(details: details);
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await checkUserIsLoggedIn(secureStorageHelper);
 
   runApp(
     ProviderScope(
