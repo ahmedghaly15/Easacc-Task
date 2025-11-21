@@ -56,5 +56,13 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>App needs Bluetooth access to scan devices.</string>
+
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>App uses Bluetooth to show available devices.</string>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is required to detect nearby Bluetooth devices.</string>
 </dict>
 </plist>
